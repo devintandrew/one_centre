@@ -1,0 +1,116 @@
+
+
+<%= form_with(model: content, local: true) do |form| %>
+  <% if content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(content.errors.count, "error") %> prohibited this content from being saved:</h2>
+
+      <ul>
+        <% content.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+  <div class="field">
+    <%= form.label :content_type %>
+    <%= form.select :content_type, ["Blog Post", "Movie", "Recipe"], {}, {:id => "select_content_type"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content_review_notes %>
+    <%= form.text_area :content_review_notes %>
+  </div>
+
+    
+    <div class="hidden_option_movie">
+      <div class="field">
+        <%= form.label :rating %>
+        <%= form.select :rating, [1,2,3,4,5], {}, {:id => "select_content_type"} %>
+      </div>
+      <div class="field">
+        <%= form.label :movie_link %>
+        <%= form.text_field :movie_link %>
+      </div>
+      <div class="field">
+        <%= form.label :release_date %>
+        <%= form.text_field :release_date, class: "datepicker" %>
+      </div>
+      
+  </div>
+   
+  <div class="hidden_option_recipe">
+    <div class="field">
+      <%= form.label :ingredients %>
+      <%= form.text_field :ingredients, as: :array %>
+    </div>
+    <% submit_tag "Add Ingredient", type: "button", id: "addIngredient", onclick: "addAddressField()" %>
+    <br />
+    <div id="ingredientHeader", style="display:none">
+      Ingredients:
+    </div> 
+    <br />
+
+
+    <div class="field">
+      <%= form.label :steps %>
+      <%= form.text_field :steps %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<script>
+
+ 
+
+    $("#select_content_type").change(function() {
+     if (document.getElementById('select_content_type').value == 'Movie'){
+        $(".hidden_option_movie").fadeIn('fast');
+      }
+      else {
+            $(".hidden_option_movie").fadeOut('fast');
+      }
+
+      if (document.getElementById('select_content_type').value == 'Recipe'){
+        $(".hidden_option_recipe").fadeIn('fast');
+      }
+      else  {
+        $(".hidden_option_recipe").fadeOut('fast');
+      }
+       
+    });
+
+   if (document.getElementById('select_content_type').value == 'Movie'){
+    $(".hidden_option_movie").fadeIn('fast');
+   }
+
+   else {
+     $(".hidden_option_movie").fadeOut('fast');
+   }
+
+    if (document.getElementById('select_content_type').value == 'Recipe'){
+    $(".hidden_option_recipe").fadeIn('fast');
+   }
+
+   else {
+     $(".hidden_option_recipe").fadeOut('fast');
+   }
+
+    $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+
+ 
+</script>

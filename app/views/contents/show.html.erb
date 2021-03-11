@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @content.content_type %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @content.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @content.content_review_notes %>
+</p>
+
+<% if (@content.content_type == "Movie") %>
+    <p>
+    <strong>Rating:</strong>
+    <%= @content.rating %>
+    </p>
+
+    <p>
+    <strong>Movie link:</strong>
+    <%= @content.movie_link %>
+    </p>
+
+    <p>
+    <strong>Release date:</strong>
+    <%= @content.release_date %>
+    </p>
+<% end %>
+
+<% if (@content.content_type == "Recipe") %>
+    <p>
+    <strong>Ingredients:</strong>
+    <%= @content.ingredients %>
+    </p>
+
+    <p>
+    <strong>Steps:</strong>
+    <%= @content.steps %>
+    </p>
+
+<% end %>
+<%= link_to 'Edit', edit_content_path(@content) %> |
+<%= link_to 'Back', contents_path %>

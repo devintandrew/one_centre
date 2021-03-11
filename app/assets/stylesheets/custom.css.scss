@@ -1,0 +1,22 @@
+@import "materialize";
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.hidden_option_movie {
+    display: none;
+}
+
+.hidden_option_recipe {
+    display: none;
+}
+
+.inner {
+    display: inline-block;
+}
