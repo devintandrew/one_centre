@@ -20,3 +20,17 @@ main {
 .inner {
     display: inline-block;
 }
+
+#error_explanation {
+    font-size: small;
+    color: #D8000C;
+    background-color: #FFD2D2;
+    h2 {
+        font-size: large;
+    }
+}
+
+#notice {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}

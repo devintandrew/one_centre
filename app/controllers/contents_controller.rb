@@ -29,7 +29,7 @@ class ContentsController < ApplicationController
    
 
     respond_to do |format|
-      if @content.save
+      if @content.save(context: :content_validation)
         format.html { redirect_to @content, notice: "Content was successfully created." }
        
       else
@@ -51,11 +51,11 @@ class ContentsController < ApplicationController
     movie_link = content_params[:movie_link]
     release_date = content_params[:release_date]
     
-    @content.update_attributes(:id => id, :steps => steps, :ingredients => ingredients, :content_review_notes => content_review_notes,:rating => rating, :movie_link => movie_link, :release_date => release_date)  
+    @content.update_attributes(:id => id, :title => title, :steps => steps, :ingredients => ingredients, :content_review_notes => content_review_notes,:rating => rating, :movie_link => movie_link, :release_date => release_date)  
    
     respond_to do |format|
       
-      if @content.save
+      if @content.save(context: :content_validation)
         format.html { redirect_to @content, notice: "Content was successfully updated." }
         format.json { render :show, status: :ok, location: @content }
       else
