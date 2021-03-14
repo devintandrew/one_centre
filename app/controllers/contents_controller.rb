@@ -20,6 +20,14 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
 
+   
+    steps = content_params[:steps].split(' ')
+    ingredients = content_params[:ingredients].split(' ')
+    
+    
+    @content.update_attributes(:steps => steps, :ingredients => ingredients)  
+   
+
     respond_to do |format|
       if @content.save
         format.html { redirect_to @content, notice: "Content was successfully created." }
@@ -34,8 +42,20 @@ class ContentsController < ApplicationController
   end
 
   def update
+    id = params[:id]
+    title = content_params[:title]
+    steps = content_params[:steps].split(' ')
+    ingredients = content_params[:ingredients].split(' ')
+    content_review_notes = content_params[:content_review_notes]
+    rating = content_params[:rating]
+    movie_link = content_params[:movie_link]
+    release_date = content_params[:release_date]
+    
+    @content.update_attributes(:id => id, :steps => steps, :ingredients => ingredients, :content_review_notes => content_review_notes,:rating => rating, :movie_link => movie_link, :release_date => release_date)  
+   
     respond_to do |format|
-      if @content.update(content_params)
+      
+      if @content.save
         format.html { redirect_to @content, notice: "Content was successfully updated." }
         format.json { render :show, status: :ok, location: @content }
       else
@@ -61,7 +81,7 @@ class ContentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def content_params
-      params.require(:content).permit(:search_param, :title, :content_review_notes, :content_type, :rating, :url_link, :release_date, ingredients: [], steps: [])
+      params.require(:content).permit(:search_param, :title, :content_review_notes, :content_type, :rating, :movie_link, :release_date, :ingredients, :steps)
     end
 
 end

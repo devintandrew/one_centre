@@ -1,3 +1,4 @@
 class Content < ApplicationRecord
- 
+  
+  
 end

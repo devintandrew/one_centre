@@ -52,17 +52,12 @@
       <%= form.label :ingredients %>
       <%= form.text_field :ingredients, as: :array %>
     </div>
-    <% submit_tag "Add Ingredient", type: "button", id: "addIngredient", onclick: "addAddressField()" %>
-    <br />
-    <div id="ingredientHeader", style="display:none">
-      Ingredients:
-    </div> 
-    <br />
-
-
+   
+   
+  
     <div class="field">
       <%= form.label :steps %>
-      <%= form.text_field :steps %>
+      <%= form.text_field :steps, as: :array  %>
     </div>
   </div>
 
