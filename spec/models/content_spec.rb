@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Content, type: :model do
   it "is invalid without a title and content_review_notes" do 
-    content = Content.new(title: "test title", content_review_notes: 'abc', content_type: 'Blog Post')
+    content = Content.new(title: nil, content_review_notes: 'abc', content_type: 'Blog Post')
     content.valid?
     expect(content.errors[:title]).to include("can't be blank")
 
