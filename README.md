@@ -49,6 +49,8 @@ A mongoDB database might be better to store documents and better fort faster ret
 
 I would add in User administration control and possibly add customer logins so that they may add there own blogs. 
 
+Could also improve if new fields are needed for each of the content_types by creating fields on the fly and saving to hstore column on postgres which would allow an easier way of adding fields and maintaining.
+
 
 
 

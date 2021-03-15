@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "Contents", type: :request do
-  describe "GET /index" do
-    it "responds successfully" do 
-      get :index
-      expect(response).to be_success
-    end
+  describe "GET /contents" do
+     let!(:contents) { FactoryBot.content }
+     it "contains the contents" do
+        get "/contents"
+        expect(response).to include contents.title
+        expect(response).to include contents.content_review_notes
+     end
   end
 end
