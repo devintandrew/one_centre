@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rubocop-rspec'
   gem 'simplecov', require: false, group: :test
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do

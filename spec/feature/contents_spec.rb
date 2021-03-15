@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Contents", type: :feature do
     scenario "create new content" do
         visit root_path
-        click_link "Create Content"
+        click_link "Create New Content"
         fill_in "title", with: "test title"
         fill_in "content_review_notes", with: "test content"
         click_button "Create Content"
@@ -14,7 +14,7 @@ RSpec.feature "Contents", type: :feature do
 
     scenario "create new content" do
         visit root_path
-        click_link "Create Content"
+        click_link "Create New Content"
         
         fill_in "content_review_notes", with: "test content"
         click_button "Create Content"
