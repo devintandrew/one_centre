@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'rubocop-rspec'
+  gem 'simplecov', require: false, group: :test
 end
 
 group :development do
